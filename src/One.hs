@@ -10,17 +10,15 @@ solution1 = sumFuel fuel modules
 solution2 = sumFuel fuelWithFuel modules
 
 fuel :: Int -> Int
-fuel mass = amount
- where
-  amount  = round (fromIntegral (mass `div` 3)) - 2
+fuel mass = round (fromIntegral (mass `div` 3)) - 2
 
 -- Extra fuel also adds fuel, so compensate for that too!
 fuelWithFuel :: Int -> Int
 fuelWithFuel mass
   | amount <= 0 = 0
   | otherwise = amount + fuelWithFuel amount
- where
-  amount  = fuel mass
+  where
+    amount = fuel mass
 
 sumFuel :: (Int -> Int) -> [Int] -> Int
 sumFuel calcFuel modules = sum $ map calcFuel modules
