@@ -36,11 +36,12 @@ process program address =
 
 -- Translate an address/opcode into an instruction.
 decode :: Program -> Address -> Instruction
-decode program address = case opCode of
-  1  -> Add (p1, p2, p3)
-  2  -> Multiply (p1, p2, p3)
-  99 -> Finish
-  _  -> error ("unknown opcode " ++ show opCode ++ " at " ++ show address)
+decode program address =
+  case opCode of
+    1  -> Add (p1, p2, p3)
+    2  -> Multiply (p1, p2, p3)
+    99 -> Finish
+    _  -> error ("unknown opcode " ++ show opCode ++ " at " ++ show address)
  where
   opCode = program !! address
   p1 = program !! (program !! (address + 1)) -- Lookup the referenced value address points to.
