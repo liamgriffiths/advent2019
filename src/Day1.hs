@@ -1,4 +1,4 @@
-module One
+module Day1
   ( solution1
   , solution2
   )

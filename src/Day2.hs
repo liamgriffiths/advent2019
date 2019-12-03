@@ -1,4 +1,4 @@
-module Two where
+module Day2 where
 
 -- https://adventofcode.com/2019/day/2
 
